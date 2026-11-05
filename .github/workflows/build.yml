@@ -6,6 +6,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: unzip -q AutoAnswer.zip
+      - run: |
+          echo "android.useAndroidX=true" > AutoAnswer/gradle.properties
+          echo "org.gradle.jvmargs=-Xmx2g" >> AutoAnswer/gradle.properties
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
